@@ -28,7 +28,7 @@ export default function (eleventyConfig) {
       includes: "_includes",
       layouts: "_includes/_layouts",
       data: "_data",
-      output: "docs"
+      output: "_site"
     },
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
