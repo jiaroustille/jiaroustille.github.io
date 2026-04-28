@@ -5,7 +5,7 @@ body>footer {
   align-items: center;
 }
 
-body>footer p.h-card span.p-name::before {
+body>footer p.h-card a.p-name::before {
   content: "©"
 }
 
