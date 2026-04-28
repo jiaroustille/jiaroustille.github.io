@@ -16,5 +16,5 @@ export default {
   },
 
   feed: { rss: "/rss.xml" },
-  repo: "my-site"
+  repo: "jiaroustille.github.io"
 }
