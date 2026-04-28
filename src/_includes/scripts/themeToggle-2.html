@@ -1,0 +1,19 @@
+<script>
+  // inside <body>
+  document.addEventListener("DOMContentLoaded", () => {
+    const root = document.documentElement
+    const btn = document.getElementById("theme-toggle")
+
+    btn.textContent = root.dataset.theme === "dark" ? "日" : "月"
+
+    btn.addEventListener("click", () => {
+      const current = root.dataset.theme
+      const next = current === "dark" ? "light" : "dark"
+
+      root.dataset.theme = next
+      localStorage.setItem("theme", next)
+
+      btn.textContent = next === "dark" ? "日" : "月"
+    })
+  })
+</script>
