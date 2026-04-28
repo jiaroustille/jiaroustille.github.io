@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ title }} | {{ site.title }}</title>
+<meta name="description" content="{{ description or site.description }}">
+
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="{{ site.title }}">
+
+{% for item in site.author.relme %}
+<link rel="me" href="{{ item.key }}">
+{% endfor %}
+
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description or site.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ site.title }}">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description or site.description }}">
+
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+
+<link rel="alternate icon" href="{{ site.url }}{{ site.favicon }}">
+<link rel="apple-touch-icon" href="{{ site.url }}{{ site.favicon }}">
+{% if image %}
+  <meta property="og:image" content="{{ site.url }}{{ image }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ image }}">
+{% else %}
+  <meta property="og:image" content="{{ site.url }}{{ site.image }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ site.image }}">
+{% endif %}
+
+<link rel="stylesheet" href="/styles/style.css">
+
+{% include "scripts/jsonLd1.html" %}
+
+{% include "scripts/themeToggle-1.html" %}
