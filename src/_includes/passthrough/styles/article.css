@@ -1,0 +1,48 @@
+body>article {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+article.h-entry main.e-content {
+  flex: 1;
+}
+
+article.h-entry footer {
+  position: relative;
+}
+
+article.h-entry div.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+article.h-entry div.footer nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: var(--md);
+}
+
+article.h-entry div.footer ul {
+  display: flex;
+  gap: var(--xs);
+  justify-content: start;
+  margin-bottom: var(--xxl);
+}
+
+article.h-entry p.rec {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+article.h-entry p.h-card::before {
+  content: "//";
+}
+
+article.h-entry p.h-card {
+  margin-bottom: var(--xxs);
+}

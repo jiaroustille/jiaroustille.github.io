@@ -1,0 +1,69 @@
+:root {
+  --weight-normal: 400;
+  --weight-bold: 700;
+
+  --ls-tight: -0.5px;
+  --ls-normal: -0.25px;
+  --ls-wide: 0px;
+
+  --lh-tight: 1.2;
+  --lh-normal: 1.4;
+
+  --font-mono: "MS Gothic", monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+  margin: var(--sm) 0 var(--xs);
+}
+
+/* PC‑98 stepped sizes */
+h1 { font-size: var(--xl); }
+h2 { font-size: var(--lg); }
+h3 { font-size: var(--md); }
+h4 { font-size: var(--sm); }
+h5 { font-size: var(--xs); }
+h6 {
+  font-size: var(--xxs);
+  opacity: 0.7;
+}
+p {
+  font-family: var(--font-family);
+  font-size: var(--md);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-normal);
+  margin: 0 0 var(--sm);
+}
+
+.e-content a {
+  color: var(--highlight);
+  text-decoration: none;
+  border-bottom: 1px solid var(--highlight);
+}
+
+.e-content a:hover {
+  border-bottom-style: dashed;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  letter-spacing: var(--ls-wide);
+}
+
+.code,
+.pre {
+  background: var(--muted);
+  border: 1px solid var(--fg);
+}
+
+code {
+  padding: 2px 4px;
+}
+
+pre {
+  padding: var(--xs);
+  overflow-x: auto;
+}

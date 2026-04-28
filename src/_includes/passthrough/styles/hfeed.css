@@ -1,0 +1,8 @@
+ul.h-feed {
+  display: flex;
+  flex-direction: column;
+}
+
+ul.h-feed li.h-entry h2.p-category::before {
+  content: "#"
+}

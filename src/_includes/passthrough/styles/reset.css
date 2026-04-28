@@ -1,0 +1,43 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, textarea, select, iframe {
+  border: none;
+  background: transparent;
+}
+
+/* ----- DETAILS ----- */
+
+summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  font-family: "Fira Code", monospace;
+  content: "C:see\\more>";
+  display: inline-block;
+  transition: transform 0.2s ease;
+}

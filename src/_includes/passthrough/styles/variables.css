@@ -1,0 +1,34 @@
+:root {
+  --xxs: 4px;
+  --xs: 8px;
+  --sm: 16px;
+  --md: 18px;
+  --lg: 28px;
+  --xl: 42px;
+  --xxl: 64px;
+
+  --Black: #000000;
+  --Blue: #0000AA;
+  --Green: #00AA00;
+  --Cyan: #00AAAA;
+  --Red: #AA0000;
+  --Magenta: #AA00AA;
+  --Yellow: #AAAA00;
+  --White: #AAAAAA;
+
+  --font-family: "MS UI Gothic", "MS PGothic", system-ui, sans-serif;
+}
+
+:root[data-theme="light"] {
+  --bg: #fefaff;
+  --fg: #000000;
+  --muted: #ffb7f5;
+  --highlight: #ff00cc;
+}
+
+:root[data-theme="dark"] {
+  --bg: #000010;
+  --fg: #e0e0ff; 
+  --muted: #202040; 
+  --highlight: #00e0ff; 
+}

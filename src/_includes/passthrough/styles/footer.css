@@ -1,0 +1,18 @@
+body>footer {
+  border-top: 1px solid var(--muted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body>footer p.h-card span.p-name::before {
+  content: "©"
+}
+
+body>footer p.h-card a.p-name::after {
+  content: " | "
+}
+
+body>footer p.h-card a[rel="me"]::after {
+  content: " • "
+}
