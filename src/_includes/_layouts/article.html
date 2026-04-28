@@ -1,0 +1,43 @@
+{% extends "_layouts/base.html" %}
+
+{% block content %}
+<article class="h-entry">
+
+  <header>
+    <h1 class="p-name">{{ title }}</h1>
+    {% time published, updated %}
+    <p class="description">{{ description or "note" }}</p>
+  </header>
+
+  <main class="e-content">
+    {{ content | safe }}
+  </main>
+  
+  <footer>
+    <p class="h-card">
+      <a class="u-url p-name" rel="me" href="{{ relme or author or site.author.relme }}">{{ author or site.author.name}}</a>
+    </p>
+    {% set otherPosts = collections.all | rejectattr("page.url", "equalto", page.url) %}
+    {% set randomPost = otherPosts | random %}
+    <p class="rec">You may also enjoy: <a href="{{ randomPost.url }}">{{ randomPost.data.title }}</a></p>
+    <div class="footer">
+      <ul>
+        {% for tag in tags -%}
+        {% if tag !== 'posts' %}
+        <li><a class="u-url u-uid p-category" href="/blog/tags/{{ tag }}">#{{ tag }}</a></li>
+        {% endif %}
+        {%- endfor %}
+      </ul>
+
+      <nav>
+        {% set prev = collections.all | getPreviousCollectionItem %}
+        <a href="{{ prev.url }}">&lt;{{ prev.data.title }}</a>
+
+        {% set next = collections.all | getNextCollectionItem %}
+        <a href="{{ next.url }}">{{ next.data.title }}&gt;</a>
+      </nav>
+    </div>
+  </footer>
+
+</article>
+{% endblock %}

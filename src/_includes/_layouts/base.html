@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="/styles/style.css">
+
+  {% for item in site.author.relme %}<link rel="me" href="{{ item.key }}">{% endfor %}
+
+  {% include "scripts/themeToggle-1.html" %}
+</head>
+<body>
+  {% include "header.html" %}
+  {% block content %}
+  <main>
+    {{ content | safe }}
+  </main>
+  {% endblock %}
+  {% include "footer.html" %}
+  {% include "scripts/themeToggle-2.html" %}
+</body>
+</html>
