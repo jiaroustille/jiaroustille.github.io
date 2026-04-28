@@ -1,0 +1,26 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.author.name }}",
+  "url": "{{ site.url }}",
+  "sameAs": [
+    {% for item in site.author.relme %}
+      "{{ item.key }}"{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}",
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}"
+  },
+  "image": "{{ site.image }}"
+}
+</script>
