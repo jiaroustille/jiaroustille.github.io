@@ -63,9 +63,7 @@
     <p class="h-card">
       <a class="u-url p-name" rel="me" href="{{ relme or author or site.author.relme }}">{{ author or site.author.name}}</a>
     </p>
-    {% set otherPosts = collections.all | rejectattr("page.url", "equalto", page.url) %}
-    {% set randomPost = otherPosts | random %}
-    <p class="rec">You may also enjoy: <a href="{{ randomPost.url }}">{{ randomPost.data.title }}</a></p>
+    {% include "recomendation.html" %}
     <div class="footer">
       <ul>
         {% for tag in tags -%}

@@ -22,6 +22,12 @@ export default function (eleventyConfig) {
   eleventyConfig.addCollection( "devlogs", function(collectionApi) { return collectionApi.getFilteredByGlob("src/content/devlog/**/*.md") })
   eleventyConfig.addCollection( "writings", function(collectionApi) { return collectionApi.getFilteredByGlob("src/content/writings/**/*.md") })
   eleventyConfig.addPassthroughCopy({"./src/_includes/passthrough" : "."})
+  eleventyConfig.addCollection("allContent", function (collectionApi) {
+    return [
+      ...collectionApi.getFilteredByGlob("src/content/devlog/**/*.md"),
+      ...collectionApi.getFilteredByGlob("src/content/writings/**/*.md")
+    ]
+  })
   return {
     dir: {
       input: "src",
