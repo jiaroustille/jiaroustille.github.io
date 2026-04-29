@@ -1,0 +1,43 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+
+  "headline": "{{ title }}",
+  "description": "{{ description or site.description }}",
+  "url": "{{ site.url }}{{ page.url }}",
+  "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
+
+  "datePublished": "{{ published }}",
+  {% if updated %}
+  "dateModified": "{{ updated }}",
+  {% else %}
+  "dateModified": "{{ published }}",
+  {% endif %}
+
+  "author": {
+    "@type": "Person",
+    "name": "{{ author or site.author.name }}",
+    "url": "{{ relme or site.url }}"
+  },
+
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ author or site.author.name }}"
+  },
+
+  "keywords": [
+    {% for tag in tags %}
+      "{{ tag }}"{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+
+  {% if image %}
+  ,
+  "image": "{{ image or site.url }}{{ image }}"
+  {% endif %}
+
+  ,
+  "wordCount": {{ content | wordcount }}
+}
+</script>

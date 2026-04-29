@@ -1,49 +1,7 @@
 {% extends "_layouts/base.html" %}
 
 {% block head %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-
-  "headline": "{{ title }}",
-  "description": "{{ description or site.description }}",
-  "url": "{{ site.url }}{{ page.url }}",
-  "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
-
-  "datePublished": "{{ published }}",
-  {% if updated %}
-  "dateModified": "{{ updated }}",
-  {% else %}
-  "dateModified": "{{ published }}",
-  {% endif %}
-
-  "author": {
-    "@type": "Person",
-    "name": "{{ author or site.author.name }}",
-    "url": "{{ relme or site.url }}"
-  },
-
-  "publisher": {
-    "@type": "Person",
-    "name": "{{ author or site.author.name }}"
-  },
-
-  "keywords": [
-    {% for tag in tags %}
-      "{{ tag }}"{% if not loop.last %},{% endif %}
-    {% endfor %}
-  ]
-
-  {% if image %}
-  ,
-  "image": "{{ image or site.url }}{{ image }}"
-  {% endif %}
-
-  ,
-  "wordCount": {{ content | wordcount }}
-}
-</script>
+{% include "jsonLdArticle.html" %}
 {% endblock %}
 
 {% block content %}
@@ -64,13 +22,15 @@
   </main>
 
   <footer>
+
     <p class="h-card">
       <a class="u-url p-name" rel="me" href="{{ relme or author or site.author.relme }}">{{ author or
         site.author.name}}</a>
     </p>
-    {% include "recomendation.html" %}
-    <div class="footer">
 
+    {% include "recomendation.html" %}
+
+    <div class="footer">
       <ul>
         {% for tag in tags -%}
         {% if tag !== 'posts' %}
@@ -78,7 +38,6 @@
         {% endif %}
         {%- endfor %}
       </ul>
-
       <nav>
         {% set prev = collections.all | getPreviousCollectionItem %}
         <a href="{{ prev.url }}">&lt;{{ prev.data.title }}</a>
@@ -87,6 +46,7 @@
         <a href="{{ next.url }}">{{ next.data.title }}&gt;</a>
       </nav>
     </div>
+
   </footer>
 
 </article>
