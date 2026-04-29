@@ -7,6 +7,7 @@ import getRandom from "./src/_11ty/plugins/random-filter.js"
 import takeFilter from "./src/_11ty/plugins/takeFilter.js"
 import skipFilter from "./src/_11ty/plugins/skipFilter.js"
 import tagsByCount from "./src/_11ty/plugins/tagsByCount.js"
+import capitalizeFilter from "./src/_11ty/plugins/capitalizeFilter.js"
 
 export default function (eleventyConfig) {
   eleventyConfig.ignores.add(".obsidian/")
@@ -16,6 +17,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("random", getRandom)
   eleventyConfig.addFilter("take", takeFilter)
   eleventyConfig.addFilter("skip", skipFilter)
+  eleventyConfig.addFilter("capitalize", capitalizeFilter)
   eleventyConfig.addCollection("tagsByCount", tagsByCount)
   eleventyConfig.addShortcode("time", timeShortcode)
   eleventyConfig.addShortcode("collectionsList", collectionsList)

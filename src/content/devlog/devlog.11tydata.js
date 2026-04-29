@@ -1,11 +1,8 @@
+import capitalize from "../../_11ty/plugins/capitalizeFilter.js"
+
 export default {
   eleventyComputed: {
-    title: (data) => {
-      return data.page.fileSlug
-        .split(/[-_]/)
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) 
-        .join(" ")
-    },
+    title: (data) => capitalize(data.page.fileSlug),
     permalink: (data) => `/devlog/${data.page.fileSlug}/`,
     layout: "article.html"
   }
