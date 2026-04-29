@@ -25,4 +25,7 @@ When I made this site, and all it's previous versions, I kept one thing in mind:
   I already made it very clear that I jump from project to project so I can't say for sure. What I do know is that I'll try to make guides (my favourite of the content types). I want to showcase my art like music, novels, poetry and photography. And Probably little notes through my journey of developing this site. I may make a blog/ diary section later on but I don't really know what would go into that category.
   
 ## Lore
-{% include "gitlog.html" %}
+{% set showGitlog = true %}
+{% if showGitlog %}
+  {% include "gitlog.html" %}
+{% endif %}
