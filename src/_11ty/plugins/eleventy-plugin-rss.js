@@ -9,7 +9,7 @@ export default function (eleventyConfig) {
 			limit: 0     // 0 means no limit
 		},
 		metadata: {
-			language: "en",
+			language: site.language,
 			title: site.title,
 			subtitle: "",
 			base: "https://" + site.domain,
