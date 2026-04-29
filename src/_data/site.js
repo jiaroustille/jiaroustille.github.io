@@ -4,7 +4,7 @@ export default {
   url: "https://jiaroustille.github.io",
   domain: "jiaroustille.github.io",
   favicon: "/img/favicon.png",
-  image: "/img/image.png",
+  image: "/img/screenshot.png",
 
   author: {
     name: "Jia-Rou",

@@ -12,6 +12,9 @@ tags: ["test", "test2", "test3"]
 favicon made in MSpaint:
 <img src="/img/favicon.png">
 
+Screenshot alternative site og-image?
+<img src="/img/screenshot.png">
+
 HTML used for screenshoot
 <span style="font-size: 300px; color: #202040">佳柔</span>
 
