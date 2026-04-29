@@ -1,41 +1,6 @@
 @import "./variables.css";
 @import "./reset.css";
-@import "./svg.css";
-@import "./article.css";
-@import "./hfeed.css";
+@import "./content.css";
 @import "./typography.css";
-@import "./footer.css";
+@import "./layout.css";
 @import "./specials.css";
-
-html {
-  font-size: var(--sm);
-  font-family: var(--font-family);
-  line-height: 1.5;
-}
-
-body {
-  background-color: var(--bg);
-  color: var(--fg);
-  max-width: 1200px;
-  margin: auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-body>header {
-  border-bottom: 1px solid var(--muted);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-body>header .h-nav {
-  display: flex;
-  gap: var(--xs)
-}
-
-#theme-toggle {
-  margin-left: var(--xs);
-  font-size: var(--md);
-}
