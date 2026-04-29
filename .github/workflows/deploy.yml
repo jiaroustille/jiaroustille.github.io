@@ -2,7 +2,8 @@ name: Deploy Eleventy site to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "test" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,10 +15,21 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22.x
+
+      - name: Cache npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Linting
+        run: npm run lint
 
       - name: Build site
         run: npm run build
