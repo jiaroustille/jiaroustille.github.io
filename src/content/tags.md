@@ -10,9 +10,11 @@ permalink: /tags/
 <ul class="h-feed">
 {% for tag, count in collections.tagsByCount %}
   <li class="h-entry">
-    <h2 class="p-name p-category withCount">
-      {{ tag }} <sup class="count">({{ count }})</sup>
-    </h2>
+    <a class="p-category" href="/tags/{{ tag }}">
+      <h2 class="p-name p-category withCount">
+        {{ tag }} <sup class="count">({{ count }})</sup>
+      </h2>
+    </a>
     <ul>
       {% for item in collections[tag] %}
         <li>

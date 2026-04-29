@@ -34,7 +34,7 @@
       <ul>
         {% for tag in tags -%}
         {% if tag !== 'posts' %}
-        <li><a class="u-url u-uid p-category" href="/blog/tags/{{ tag }}">#{{ tag }}</a></li>
+        <li><a class="u-url u-uid p-category" href="/tags/{{ tag | slugify }}">#{{ tag }}</a></li>
         {% endif %}
         {%- endfor %}
       </ul>
