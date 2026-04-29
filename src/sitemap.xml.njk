@@ -25,13 +25,4 @@ eleventyExcludeFromCollections: true
   </url>
   {% endfor %}
 
-  {% for p in collections.all %}
-    {% if p.url and p.url != "/" and not p.data.eleventyExcludeFromCollections %}
-      <url>
-        <loc>{{ site.url }}{{ p.url }}</loc>
-        <lastmod>{{ (p.data.updated or p.data.published or p.date) | dateToRfc822 }}</lastmod>
-      </url>
-    {% endif %}
-  {% endfor %}
-
 </urlset>
