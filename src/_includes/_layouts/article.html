@@ -50,7 +50,11 @@
 <article class="h-entry">
 
   <header>
-    <h1 class="p-name">{{ title }}</h1>
+    <div style="display: flex; align-items: baseline;">
+      <h1 class="p-name">{{ title }}</h1>
+      <button class="share-inline" aria-label="Copy link"></button>
+      {% include "shareBtn.html" %}
+    </div>
     {% time published, updated %}
     <p class="description">{{ description or "note" }}</p>
   </header>
@@ -58,13 +62,15 @@
   <main class="e-content">
     {{ content | safe }}
   </main>
-  
+
   <footer>
     <p class="h-card">
-      <a class="u-url p-name" rel="me" href="{{ relme or author or site.author.relme }}">{{ author or site.author.name}}</a>
+      <a class="u-url p-name" rel="me" href="{{ relme or author or site.author.relme }}">{{ author or
+        site.author.name}}</a>
     </p>
     {% include "recomendation.html" %}
     <div class="footer">
+
       <ul>
         {% for tag in tags -%}
         {% if tag !== 'posts' %}
