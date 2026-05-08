@@ -1,9 +1,26 @@
 import * as childProcess from "child_process"
+import fs from "fs"
 import path from "path"
 
 function safeDate(input) {
   const d = new Date(input)
   return isNaN(d) ? null : d
+}
+
+let gitlogCache = null
+function loadGitlogCache() {
+  if (gitlogCache) return gitlogCache
+
+  const cachePath = path.resolve(".cache/gitlog.json")
+
+  if (!fs.existsSync(cachePath)) {
+    console.warn("need 'npm run prebuild' to generate .cache/gitlog.json")
+    gitlogCache = []
+    return gitlogCache
+  }
+
+  gitlogCache = JSON.parse(fs.readFileSync(cachePath, "utf8"))
+  return gitlogCache
 }
 
 export default {
@@ -103,18 +120,8 @@ export default {
   // git
   gitlog(filePath) {
     if (!filePath) return false
-    const absolute = path.resolve("./src/routes", filePath)
-    let fileHistory = childProcess
-      .execSync("git log --pretty=tformat:\"%H | %cs | %s\"")
-      .toString()
-      .trim()
-    if (fileHistory === "") return false
-    const fileLog = []
-    fileHistory.split(/\r?\n/).forEach(change => {
-      const [hash, date, subject] = change.split(" | ")
-      fileLog.push({ hash, date, subject })
-    })
-    return fileLog
+    const log = loadGitlogCache()
+    return log
   },
 
   skipFirst(arr, count) {
