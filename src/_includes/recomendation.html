@@ -1,8 +1,0 @@
-{% set otherPosts = collections.allContent | rejectattr("page.url", "equalto", page.url) %}
-{% if otherPosts | length > 0 %}
-  {% set rec = otherPosts | random %}
-  <p class="rec">
-    You may also enjoy:
-    <a href="{{ rec.url }}">{{ rec.data.title }}</a>
-  </p>
-{% endif %}
