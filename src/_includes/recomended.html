@@ -1,0 +1,10 @@
+{% set prev = collections.writings | getPreviousCollectionItem %}
+{% set next = collections.writings | getNextCollectionItem %}
+<nav>
+  <a class="u-url" href="{{ prev.url }}">&lt;&lt;</a>
+  {% set others = collections.writings | rejectattr("url", "equalto", page.url) %}
+  {% for i in collections.writings | getRandom(1) %}
+    <a class="u-url" href="{{ i.url }}">You may also enjoy: {{ i.data.title | deslugify }}</a>
+  {% endfor %}
+  <a class="u-url" href="{{ next.url }}">&gt;&gt;</a>
+</nav>

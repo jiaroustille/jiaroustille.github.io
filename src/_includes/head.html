@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ title }} | {{ site.title }}</title>
+<link rel="canonical" href="https://{{ site.domain }}{{ page.url }}">
+<meta name="description" content="{{ content | genDescription }}">
+
+<meta name="author" content="{{ author.name or author }}">
+{% for i in site.author.socials %}
+<link rel="me" href="{{ i.href }}">
+{% endfor %}
+
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ content | genDescription }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://{{ site.domain }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.domain }}">
+<meta property="og:image" content="{{ site.preview }}" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ content | genDescription }}">
+
+<link rel="icon" href="{{ site.favicon }}">
+<link rel="apple-touch-icon" href="{{ site.favicon }}">
+
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="{{ site.domain }} RSS Feed">
+
+<link rel="stylesheet" href="/assets/styles/root.css">
+<link rel="stylesheet" href="/assets/styles/typography.css">
+<link rel="stylesheet" href="/assets/styles/layout.css">
+<link rel="stylesheet" href="/assets/styles/animations.css">
+<link rel="stylesheet" href="/assets/styles/prism.css">
+<link rel="stylesheet" href="/assets/styles/style.css">
+
+{% include "schema.html" %}

@@ -1,0 +1,38 @@
+<header>
+  <a href="/" class="logoLink" style="border: none;">
+  <!--
+    <img 
+    class="logoImg" 
+    src="{{ site.favicon }}" 
+    alt="Site Signature Icon"
+    width="48"
+    style="border: 1px solid var(--clr-foreground);"
+    >
+  -->
+    <p 
+      class="logoImg" 
+      style="
+      font-size: 2.2rem;
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 2px;
+      font-family: var(--font-family);
+      font-weight: 700;
+      overflow: hidden;
+      border: 1px solid var(--clr-foreground)
+      ">柔</p>
+  </a>
+  <nav class="h-nav">
+    <ul>
+      <li><a class="u-url" href="/about">About</a></li>
+      <li><a class="u-url" href="/diary/">Diary</a></li>
+      <li><a class="u-url" href="/writings/">Writings</a></li>
+    </ul>
+    {% include "themeSwitch.html" %}
+  </nav>
+</header>

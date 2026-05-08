@@ -1,0 +1,20 @@
+---
+permalink: sitemap.xml
+title: Sitemap
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ (collections.all | last).date | toISOstring }}</lastmod>
+  </url>
+
+  {% for p in collections.all %}
+  <url>
+    <loc>{{ site.url }}{{ p.url }}</loc>
+    <lastmod>{{ (p.data.updated or p.data.published or p.date) | toISOstring }}</lastmod>
+  </url>
+  {% endfor %}
+
+</urlset>

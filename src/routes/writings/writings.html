@@ -1,0 +1,12 @@
+---
+permalink: /writings/index.html
+title: Writings
+layout: base.html
+col: writings
+eleventyComputed:
+  eleventyExcludeFromCollections: true
+---
+
+<h1>{{ title }}</h1>
+{% from "hfeed.njk" import hfeed %}
+{{ hfeed(collections[col] | reverse, true) }}

@@ -1,0 +1,9 @@
+<footer class="h-card">
+  <ul>
+    <li><a class="u-url p-name u-uid" href="/about">{{ site.author.name }}</a></li>
+    {% for i in site.author.socials %}
+    <li><a rel="me" href="{{ i.href }}">{{ i.label }}</a></li>
+    {% endfor %}
+    <li><a class="u-url" rel="feed" href="/rss.xml">RSS</a></li>
+  </ul>
+</footer>

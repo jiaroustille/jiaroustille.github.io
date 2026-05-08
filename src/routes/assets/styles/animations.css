@@ -1,0 +1,5 @@
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes blink { 50% { opacity: 0; } }
+  .aniBlink { display: inline-block; animation: blink 1s steps(1) infinite, nudge 1s ease-in-out infinite; }
+  .aniBlink { animation: blink 1s steps(1) infinite; }
+}

@@ -1,0 +1,21 @@
+{% macro hfeed(items, showTime=false, useRaw=false) %}
+<ul class="h-feed">
+  {% for i in items %}
+  <li class="h-entry">
+    <header style="display: flex; align-items: baseline; gap: 1ch;">
+      <a class="u-url" href="{{ i.url }}"><h2 class="p-name">{{ i.data.title | deslugify }}</h2></a>
+
+      {% if showTime %}
+        <time>{{ i.content | readingTime }}</time>
+      {% endif %}
+    </header>
+
+    {% if useRaw %}
+      <p class="p-summary">{{ i.rawInput | genDescription }}</p>
+    {% else %}
+      <p class="p-summary">{{ i.content | genDescription }}</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endmacro %}

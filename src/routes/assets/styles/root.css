@@ -1,0 +1,70 @@
+:root {
+  --xxs: 12px;
+  --xs: 16px;
+  --sm: 20px;
+  --md: 24px;
+  --lg: 28px;
+  --xl: 32px;
+  --xxl: 36px;
+
+  --font-family: "MS UI Gothic", "MS PGothic", system-ui, sans-serif;
+}
+
+:root[data-theme="light"] {
+  --clr-foreground: #1e212bff;
+  --clr-background: #fcfffcff;
+  --clr-primary: #e5a4cbff;
+  --clr-secondary: #5c80bcff;
+  --clr-accent: #25314e;
+  --clr-muted: #bbd8e4;
+
+  --red:    #ff0400;
+  --orange: #ff7b00;
+  --yellow: #ffbb00;
+  --green:  #007c06;
+  --cyan:   #00a897;
+  --blue:   #005eb1;
+  --indigo: #001bb4;
+  --violet: #810097;
+  --grey:   #535353;
+}
+
+:root[data-theme="dark"] {
+  --clr-foreground: #fcfffcff;
+  --clr-background: #1e212bff;
+  --clr-primary: #b279a7ff;
+  --clr-secondary: #3e7cb1ff;
+  --clr-accent: #bbd8e4;
+  --clr-muted: #25314e;
+
+  --red:    #ff8585;
+  --orange: #ffb686;
+  --yellow: #ffe17d;
+  --green:  #97ff9b;
+  --cyan:   #a0f6ff;
+  --blue:   #94bbff;
+  --indigo: #a6b2ff;
+  --violet: #e7c0ff;
+  --grey:   #c0c0c0;
+}
+
+* {
+  /*all: unset;*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+  background-color: inherit;
+}
+
+html {
+  font-size: var(--xs);
+  line-height: 1.3;
+  font-weight: 400;
+  text-align: justify;
+  font-family: var(--font-family);
+  height: 100%;
+  cursor: default;
+  word-break: pretty;
+  scroll-behavior: smooth;
+}

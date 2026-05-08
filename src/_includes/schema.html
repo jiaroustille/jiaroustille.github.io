@@ -1,0 +1,34 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ type }}",
+  "headline": "{{ title | deslugify }}",
+  "url": "https://{{ site.domain }}{{ page.url }}",
+  "description": "{{ content | genDescription }}",
+  "datePublished": "{{ pub | toISOstring or date | toISOstring }}",
+  "dateModified": "{{ upd | toISOstring or pub or date | toISOstring }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ author.name or author }}",
+    "url": "https://{{ site.domain }}/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "url": "https://{{ site.domain }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.favicon }}"
+    }
+  },
+  "image": ["{{ site.preview }}"],
+  "thumbnailUrl": "{{ site.preview }}",
+  "mainEntityOfPage": {
+  "@type": "WebPage",
+  "@id": "https://{{ site.domain }}{{ page.url }}"
+  },
+  {% if tags %}"keywords": "{{ tags }}",{% endif %}
+  "wordCount": {{ content | wordCount }},
+  "inLanguage": "{{ language or site.language }}"
+}
+</script>

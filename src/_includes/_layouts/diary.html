@@ -1,0 +1,22 @@
+{% extends "_layouts/base.html" %}
+
+{% block content %}
+<article class="e-content">
+
+  <header>
+    <h1 class="p-name">{{ title }}</h1>
+    <time>{{ content | readingTime }}</time>
+  </header>
+
+  <div>
+    {{ content | safe }}
+  </div>
+
+  <footer>
+    {% include "tags.html" %}
+    <p class="p-author">{{ author.name }}</p>
+    {% recommended "diary", page, collections  %}
+  </footer>
+
+</article>
+{% endblock %}

@@ -1,0 +1,42 @@
+main > article > div { font-family: system-ui, arial; }
+
+a { text-decoration: none; }
+body > main > article > * > a { border-bottom: 2px solid var(--clr-secondary); }
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-family); }
+h2, h1 { margin-top: var(--lg); }
+h3 { margin-top: var(--md); }
+
+body > main > article > * > li { margin-left: var(--xs); }
+
+blockquote {
+  padding-left: var(--md);
+  margin: var(--md) 0;
+  font-style: oblique;
+  border-left: 3px solid var(--clr-secondary);
+}
+
+del { position: relative; color: var(--clr-foreground); }
+del::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(-25deg,
+      var(--clr-background) 0 4px,
+      transparent 8px 12px);
+  opacity: 0.6;
+}
+del::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(45deg,
+      var(--clr-background) 0 8px,
+      transparent 12px 8px);
+  opacity: 0.8;
+}
+
+ul, ol { list-style: none; }
+ul > li::before, ol > li::before { content: "⁃ "; }

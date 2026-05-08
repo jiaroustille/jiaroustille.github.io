@@ -1,0 +1,19 @@
+{% set gitlog = page.inputPath | gitlog %}
+{% if gitlog %}
+<details>
+  <summary style="list-style: none">C:./see/more> git log --pretty --decorate<span class="aniBlink">█</span>
+    <ul class="noList" style="gap: 0;">{% for log in gitlog | setLimit(5) %}<li>
+      <a 
+        href="https://github.com/jiaroustille/{{ site.repo }}/commit/{{ log.hash }}" 
+        target="_blank" rel="noopener"
+      >{{ log.date }} {{ log.subject }}</a>
+    </li>{% endfor %}</ul>
+  </summary>
+  <ul class="noList" style="gap: 0;">{% for log in gitlog | skipFirst(5) %}<li>
+    <a 
+      href="https://github.com/jiaroustille/{{ site.repo }}/commit/{{ log.hash }}" 
+      target="_blank" rel="noopener"
+    >{{ log.date }} {{ log.subject }}</a>
+  </li>{% endfor %}</ul>
+</details>
+{% endif %}
