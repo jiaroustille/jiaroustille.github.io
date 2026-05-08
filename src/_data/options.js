@@ -9,8 +9,8 @@ export default {
 		htmlOptions: {
 			imgAttributes: {
 				loading: "lazy",
-				decoding: "async",
-			},
-		},
+				decoding: "async"
+			}
+		}
   }
 }

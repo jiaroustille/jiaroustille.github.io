@@ -8,7 +8,8 @@ export default defineConfig([
     rules: {
       "semi": ["error", "never"],
       "quotes": ["error", "double"],
-      "comma-dangle": ["error", "never"]
+      "comma-dangle": ["error", "never"],
+      "no-unused-vars": "warn"
     }
   }
 ])

@@ -9,5 +9,5 @@ export default {
     title: (data) => data.title || filters.toPrettyString(data.date), 
     author: (data) => site.author,
     type: (data) => data.type || "BlogPosting"
-  },
+  }
 }

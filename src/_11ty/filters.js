@@ -37,7 +37,7 @@ export default {
 
   // generate
   genDescription(str) {
-    if (!str) return "";
+    if (!str) return ""
 
     let clean = str.replace(/<[^>]*>/g, "") // html
     clean = clean.replace(/^#{1,6}\s*/gm, "") // headings
@@ -49,7 +49,7 @@ export default {
     const short = clean.slice(0, 120)
     const trimmed = short.trimEnd().replace(/\s+\S*$/, "")
 
-    return trimmed + "…";
+    return trimmed + "…"
   },
 
   // messure
@@ -95,7 +95,7 @@ export default {
   rejectattr(arr, attr, value) {
     if (!Array.isArray(arr)) return []
     return arr.filter(item => {
-      const v = attr.split('.').reduce((o, k) => o?.[k], item)
+      const v = attr.split(".").reduce((o, k) => o?.[k], item)
       return v !== value
     })
   },
@@ -105,7 +105,7 @@ export default {
     if (!filePath) return false
     const absolute = path.resolve("./src/routes", filePath)
     let fileHistory = childProcess
-      .execSync(`git log --pretty=tformat:"%H | %cs | %s"`)
+      .execSync("git log --pretty=tformat:\"%H | %cs | %s\"")
       .toString()
       .trim()
     if (fileHistory === "") return false
