@@ -30,6 +30,10 @@ jobs:
 
       - name: Linting
         run: npm run lint || true
+        
+      - name: Generate git log
+        run: |
+          git log --pretty=format:'%h %ad %s' --date=short > .cache/gitlog.txt
 
       - name: Build site
         run: npm run build
