@@ -1,0 +1,312 @@
+[
+  {
+    "hash": "ec97fab87d6585d7f36e0b23295cee7784ee7b11",
+    "date": "2026-05-14",
+    "subject": "fix: manual revert"
+  },
+  {
+    "hash": "a93d292ef489e7073741334e66a50be74a65eab2",
+    "date": "2026-05-14",
+    "subject": "fix: deploy and run gitlog gen"
+  },
+  {
+    "hash": "87ff83737677f0372d237e6aadc320a7a4456e89",
+    "date": "2026-05-14",
+    "subject": "style: update readme"
+  },
+  {
+    "hash": "a3ef523fa12770d85a10b4f0beb0f6d12034cee1",
+    "date": "2026-05-13",
+    "subject": "blogging"
+  },
+  {
+    "hash": "91af6e5467271818c19456adca35622f5ff14a2b",
+    "date": "2026-05-12",
+    "subject": "temp: redirect from /nfc"
+  },
+  {
+    "hash": "84f3af6bf9ad11cd7472fb45927b01dc28724a52",
+    "date": "2026-05-12",
+    "subject": "feat: add page /nfc"
+  },
+  {
+    "hash": "2ea9649b183b1e26baf880b2cb7562a135df9ae9",
+    "date": "2026-05-08",
+    "subject": "fix: gitlog stored in .cache/"
+  },
+  {
+    "hash": "0ecf5bbe132f6f18e657edee7776e4337e91a845",
+    "date": "2026-05-08",
+    "subject": "feat: add deploy.yml"
+  },
+  {
+    "hash": "5404d5dfd5890fc97a288c7ad9ade0e88f691175",
+    "date": "2026-05-08",
+    "subject": "linting"
+  },
+  {
+    "hash": "c1f04247befee12aec21d0c1baad5c830ffc8f8d",
+    "date": "2026-05-08",
+    "subject": "... add eslint"
+  },
+  {
+    "hash": "c777f5bea44f939a056478be2c864262039c506e",
+    "date": "2026-05-08",
+    "subject": "style: match config file names"
+  },
+  {
+    "hash": "014f3faf9f6e8a168c1f923e6ec52f238be5a642",
+    "date": "2026-05-08",
+    "subject": "feat: add eslint"
+  },
+  {
+    "hash": "f8903a724e039adf660f861c0e8a06e234588781",
+    "date": "2026-05-08",
+    "subject": "add LISENCE and README.md"
+  },
+  {
+    "hash": "c818f21b1dd5d8f2ece656843d1641133f6f5dd5",
+    "date": "2026-05-08",
+    "subject": "major refractor"
+  },
+  {
+    "hash": "dcf4d92e438e553266140cddaa8c1a46680257f7",
+    "date": "2026-05-08",
+    "subject": "I DONT UNDERSTAND GIT"
+  },
+  {
+    "hash": "427b383ef43692fb5216b9884c67a0ce6d6032d5",
+    "date": "2026-05-02",
+    "subject": "blogging"
+  },
+  {
+    "hash": "f31701cc539edf89f65e04cf2e264e5aef8ee7c8",
+    "date": "2026-04-30",
+    "subject": "blogging"
+  },
+  {
+    "hash": "2c1f7fb96c32cb9d8f1a3148cf1e7a71e4285e19",
+    "date": "2026-04-29",
+    "subject": "exclude tag pages from collections"
+  },
+  {
+    "hash": "68a20001543f780de966ca50d2fb314581f5578b",
+    "date": "2026-04-29",
+    "subject": "add individual tag pages"
+  },
+  {
+    "hash": "09587421303d8b06551b4ccfafa186c4b9b3e8d2",
+    "date": "2026-04-29",
+    "subject": "add optional manual title"
+  },
+  {
+    "hash": "c141e6f65c2eac3886f74c3a26ff2fa1c3237d36",
+    "date": "2026-04-29",
+    "subject": "add and use capitalize filter"
+  },
+  {
+    "hash": "6b783c7c1df0fc9d205630c7987d658a0ce8d74b",
+    "date": "2026-04-29",
+    "subject": "clean up css files"
+  },
+  {
+    "hash": "7e0253bbf59275c93b93e71a875c93ac6256f5db",
+    "date": "2026-04-29",
+    "subject": "replace og-image"
+  },
+  {
+    "hash": "a066dcc8a576bc8e965276263586fa7ad4870789",
+    "date": "2026-04-29",
+    "subject": "fix grammar error"
+  },
+  {
+    "hash": "5e2e8b4ffaac1a5685e9f9f5a475bd8514b0351a",
+    "date": "2026-04-29",
+    "subject": "blogging"
+  },
+  {
+    "hash": "c39cf268a2031bb8e8e732c991fd339754f6658f",
+    "date": "2026-04-29",
+    "subject": "add drafts/ to gitignore"
+  },
+  {
+    "hash": "c96a4b0d585fad46e8beb01b56122fadf5f78501",
+    "date": "2026-04-29",
+    "subject": "add link to README.md"
+  },
+  {
+    "hash": "aeefc2086244e2d15f2d19e4ac1b4aeae1adcedd",
+    "date": "2026-04-29",
+    "subject": "fix include calls"
+  },
+  {
+    "hash": "c366aa9c078e39c164d1552411d5147b065e2924",
+    "date": "2026-04-29",
+    "subject": "spring cleaning"
+  },
+  {
+    "hash": "56d93f4f0a5c79582be20d282d84ef39bbbc1b45",
+    "date": "2026-04-29",
+    "subject": "add copy link button"
+  },
+  {
+    "hash": "3e50c8b4a4f11ce9b757314c852650b0ce6a7cae",
+    "date": "2026-04-29",
+    "subject": "fix gitlog include usage"
+  },
+  {
+    "hash": "58c960ee71eb1f4df1977d56756f6add10f08017",
+    "date": "2026-04-29",
+    "subject": "fix spelling errors"
+  },
+  {
+    "hash": "7ae6cd35fa1165317f7c90ad59743ad86a134336",
+    "date": "2026-04-29",
+    "subject": "add allContent collection"
+  },
+  {
+    "hash": "62e31a37ae1ff0f13df4bcc7870f54cac095eefd",
+    "date": "2026-04-29",
+    "subject": "blogging"
+  },
+  {
+    "hash": "c827617071214a2c883807e9bd7d076007eda553",
+    "date": "2026-04-29",
+    "subject": "fix sitemap double-index"
+  },
+  {
+    "hash": "1d82e61b5c6501a8f625bdbc9e3c61d4889f7e65",
+    "date": "2026-04-29",
+    "subject": "add README.md"
+  },
+  {
+    "hash": "162c288de3f233de6bd1eba7334fc325053d6b1e",
+    "date": "2026-04-29",
+    "subject": "enforce lisence"
+  },
+  {
+    "hash": "107354cc77f85f9bf3df634911cb49b9c8bf5388",
+    "date": "2026-04-29",
+    "subject": "add site.language in _data/"
+  },
+  {
+    "hash": "934e9ed04caa72b344f133a9dc8e78b1b3a42705",
+    "date": "2026-04-29",
+    "subject": "allow deploy with lint errors"
+  },
+  {
+    "hash": "ae54e5a3766d4b99a0e52fe86e5a438c843e03b5",
+    "date": "2026-04-29",
+    "subject": "trying to prevent corrupted .git/"
+  },
+  {
+    "hash": "a9c5f9f516b381ec5d3cf7e5890364e1c0874c7b",
+    "date": "2026-04-28",
+    "subject": "add license"
+  },
+  {
+    "hash": "4146b993631bbfde774700bcb500835f5832e2ae",
+    "date": "2026-04-28",
+    "subject": "add humans.txt and robots.txt"
+  },
+  {
+    "hash": "5bb6fc97e8251b7ed453217069f115f33952b96c",
+    "date": "2026-04-28",
+    "subject": "add sitemap"
+  },
+  {
+    "hash": "0b026925490454a61765f610b0935fa623f68874",
+    "date": "2026-04-28",
+    "subject": "add build script"
+  },
+  {
+    "hash": "7c3a1110b306b5677ae79b681dbfbe73cfdf7cd0",
+    "date": "2026-04-28",
+    "subject": "add deploy.yml and set output _site"
+  },
+  {
+    "hash": "b85cfaec68e9368eeed868661e9fc4ac3272292f",
+    "date": "2026-04-28",
+    "subject": "define repository name"
+  },
+  {
+    "hash": "1bb8042c459774b1cb5504e9377a91813f27159a",
+    "date": "2026-04-28",
+    "subject": "add favicon and og-image"
+  },
+  {
+    "hash": "26265768752019b8a886533ac1afd7308af3955d",
+    "date": "2026-04-28",
+    "subject": "add jsonLd for article layout"
+  },
+  {
+    "hash": "72a5594d8cb00026f53cb4efc74a611bc8cfccb3",
+    "date": "2026-04-28",
+    "subject": "add jsonLd for base layout"
+  },
+  {
+    "hash": "1d906c0c66fc141dc459b99263add0fe21f6cb94",
+    "date": "2026-04-28",
+    "subject": "split layout with metahead component"
+  },
+  {
+    "hash": "f65171f65df479770b96883ae606d64e43cffe98",
+    "date": "2026-04-28",
+    "subject": "split layout with metahead component"
+  },
+  {
+    "hash": "4347c79e67fcd54d66ee4b91fa0dc654e9d3e68f",
+    "date": "2026-04-28",
+    "subject": "add site data for more defaults"
+  },
+  {
+    "hash": "f0549bfb1e29beae055ba0ec66d192d9fc1a8cb6",
+    "date": "2026-04-28",
+    "subject": "add docs/ to gitignore"
+  },
+  {
+    "hash": "518398f80fa34ab3a93e906a59d98f48dd400f67",
+    "date": "2026-04-28",
+    "subject": "add git log include"
+  },
+  {
+    "hash": "633be0b6373bc5e9a3e1e2820e433b0bed5498cc",
+    "date": "2026-04-28",
+    "subject": "add theme toggle scripts"
+  },
+  {
+    "hash": "e92ef792c3d0ea4b03e53e2475f8e4eee3031340",
+    "date": "2026-04-28",
+    "subject": "content"
+  },
+  {
+    "hash": "8ff89bcc786e65da9fbd5c18c3ca76480d440aea",
+    "date": "2026-04-28",
+    "subject": "add base content pages"
+  },
+  {
+    "hash": "327e74ad5298d14702e4b3e8340c932a475ca3ac",
+    "date": "2026-04-28",
+    "subject": "add site metadata and git log data"
+  },
+  {
+    "hash": "d2e419e8a4735f37e1c7bafab52354116a280ea5",
+    "date": "2026-04-28",
+    "subject": "add plugins and shortcodes"
+  },
+  {
+    "hash": "6f92b898a68ad07b50662c1604b2b7d8261a1b37",
+    "date": "2026-04-28",
+    "subject": "styling"
+  },
+  {
+    "hash": "a83fad898cd0059bb7c561fc7ed6f4ba8a785364",
+    "date": "2026-04-28",
+    "subject": "add base layout and includes"
+  },
+  {
+    "hash": "cf2c5b1216b4549b632178192508b07a014963b4",
+    "date": "2026-04-28",
+    "subject": "Hello World"
+  }
+]
