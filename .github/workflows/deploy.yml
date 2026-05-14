@@ -30,13 +30,12 @@ jobs:
 
       - name: Linting
         run: npm run lint || true
-        
-      - name: Generate git log
-        run: |
-          git log --pretty=format:'%h %ad %s' --date=short > .cache/gitlog.txt
 
       - name: Build site
         run: npm run build
+
+      - name: Show generated gitlog.json
+        run: cat .cache/gitlog.json
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
