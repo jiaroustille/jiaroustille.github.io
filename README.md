@@ -17,26 +17,16 @@ Hello! This is the source code for my personal website, built with Eleventy and 
 
 ## Structure
 
-```
-src:\
-│
-│   humans.txt.njk
-│   index.md
-├───routes
-│   │   devlog.md
-│   │   tags.md
-│   │   writings.md
-│   │   
-│   ├───diary/
-│   └───writings/
-├───_11ty/
-│   ├───collections/
-│   ├───filters/
-│   └───shortcodes/
-├───_data/
-│       site.js
-└───_includes/
-    └───layouts/
+```bash
+.
+├── .cache/               # 11ty build cache
+├── scripts/              # build & utility scripts
+├── src/                  # main site source
+│   ├── routes/           # pages, diary, writings, assets
+│   ├── _11ty/            # filters, shortcodes, collections
+│   ├── _data/            # global data
+│   └── _includes/        # layouts, partials, components
+└── eleventy.config.js    # Eleventy configuration
 ```
 
 ## Licensing
