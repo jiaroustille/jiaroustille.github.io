@@ -41,9 +41,9 @@ Hello! This is the source code for my personal website, built with Eleventy and 
        alt="Valid RSS" align="right" width="88">
 </a>
 
----
 
-# To-Do
+
+## To-Do
 - Add linting rule for double spaces with tab
 - FIX GITLOG
 - Style links in articles
