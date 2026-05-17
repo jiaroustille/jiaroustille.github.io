@@ -40,3 +40,10 @@ Hello! This is the source code for my personal website, built with Eleventy and 
   <img src="https://www.rssboard.org/rss-validator/images/valid-rss-rogers.png" 
        alt="Valid RSS" align="right" width="88">
 </a>
+
+---
+
+# To-Do
+- Add linting rule for double spaces with tab
+- FIX GITLOG
+- Style links in articles
