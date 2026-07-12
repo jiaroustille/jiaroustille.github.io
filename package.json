@@ -5,9 +5,11 @@
   "main": ".eleventy.js",
   "scripts": {
     "lint": "npx eslint --fix",
-    "srv": "npx @11ty/eleventy --quiet --serve",
-    "prebuild": "node scripts/buildGitlog.js",
-    "build": "npx @11ty/eleventy"  
+    "gitlog": "node scripts/buildGitlog.js",
+    "prebuild": "npm run gitlog",
+    "presrv": "npm run gitlog",
+    "build": "npx @11ty/eleventy",
+    "srv": "npx @11ty/eleventy --quiet --serve"
   },
   "keywords": [],
   "author": "",
