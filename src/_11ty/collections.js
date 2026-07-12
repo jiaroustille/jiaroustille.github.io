@@ -9,6 +9,11 @@ export default {
   writings(collectionApi) {
     return collectionApi
       .getFilteredByGlob("./src/routes/writings/*.md")
+  },
+
+  recipes(collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("./src/routes/recipes/*.md")
   }
 
 }

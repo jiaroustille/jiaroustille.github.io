@@ -6,10 +6,11 @@ export default {
 		xhtmlOut: false
   },
   eleventyImageTransformPlugin: {
+		widths: [300],
 		htmlOptions: {
 			imgAttributes: {
 				loading: "lazy",
-				decoding: "async"
+				decoding: "async",
 			}
 		}
   }

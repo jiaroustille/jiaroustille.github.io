@@ -1,3 +1,5 @@
 /* extra styling here :3 */
 
 .noList li::before { content: "" !important; }
+
+main article p a { font-style: italic; color: var(--clr-accent); }

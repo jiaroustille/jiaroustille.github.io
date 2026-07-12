@@ -46,4 +46,4 @@ Hello! This is the source code for my personal website, built with Eleventy and 
 ## To-Do
 - Add linting rule for double spaces with tab
 - FIX GITLOG
-- Style links in articles
+- ~~Style links in articles~~
