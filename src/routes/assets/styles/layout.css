@@ -57,6 +57,10 @@ body > header > nav > ul {
   font-size: var(--sm);
 }
 
+@media (max-width: 700px) { 
+  header nav.h-nav ul li::before { content: "" }
+}
+
 body > header > nav { display: flex; gap: var(--xxs); align-items: center; } 
 body > footer > ul { 
   display: flex; 

@@ -1,0 +1,176 @@
+---
+layout: iframe.html
+---
+<style>
+  .plant {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    color: black;
+  }
+
+  .top,
+  .bottom {
+    height: 25px;
+  }
+
+  .top {
+    background-color: #87cefa;
+  }
+
+  .bottom {
+    background-color: #98fb98;
+  }
+
+  .garden-main {
+    height: 200px;
+    margin-top: -4px;
+    position: relative;
+    background: #87cefa;
+  }
+
+  .plant-item {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translate(-50%);
+    transform-origin: bottom;
+    cursor: pointer;
+    font-size: 5px;
+    line-height: 1;
+    transition: transform 0.5s;
+    color: green;
+    font-weight: 900;
+    user-select: none;
+    white-space: pre;
+    font-family: monospace;
+    background-color: transparent;
+    text-shadow: 1px 1px 1px white, -1px -1px -1px white;
+  }
+
+  #flower {
+    color: maroon;
+  }
+
+  .blooming:before {
+    content: "^^^^^";
+    white-space: pre;
+    position: absolute;
+    top: 38px;
+    left: 8px;
+  }
+
+  .blooming:after {
+    content: "\\\\\\vvv///";
+    color: red;
+    white-space: pre;
+    position: absolute;
+    top: 33px;
+    left: 2px;
+  }
+
+  .cloud {
+    font-size: 5rem;
+    color: #f0f8ff;
+    line-height: 1;
+  }
+
+  #bloomMessage {
+    display: none;
+    z-index: 2;
+    font-weight: 700;
+    font-size: 1.5rem;
+    position: absolute;
+    top: -50px;
+    padding-left: 3rem;
+    height: 250px;
+    width: 100%;
+    background: linear-gradient(to right, #0000, #0000, #0000, #0000, #87cefa, #87cefa, #87cefa, #87cefa, #0000, #0000, #0000, #0000);
+  }
+
+  #bloomMessage a {
+    color: #ff1493;
+    text-shadow: 1px 1px 10px #f0f8ff, -1px -1px 10px #f0f8ff;
+    z-index: 100;
+    white-space: pre;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 900;
+  }
+</style>
+
+<div class="plant">
+  <marquee class="top">Welcome to my Webgarden</marquee>
+  <div class="garden-main">
+    <div id="bloomMessage">
+      <a href="https://{{ site.domain }}" target="_blank">
+        <p>
+⠀⠀⠀⠀⠀⠀⠀⡴⠛⠙⢳⡀⠀⠀⠀⠀
+⢀⣤⠤⢤⣄⠀⢸⠉⠀⠀⠈⣧⢀⠀⠀⠀
+⣞⠋⠀⠀⠈⠻⡼⡀⣄⡀⢀⡯⠟⠧⢤⡀
+⠹⣄⠀⠀⣠⣤⠘⠧⣽⣨⣞⡁⠀⠀⠀⡇
+⠀⠈⣓⣦⣜⠉⣿⣶⠧⣟⣙⣀⣀⣠⠞⠁
+⠀⡞⠉⠀⠾⠞⡵⢜⣇⡀⠙⢦⠀⠀⠀⠀
+⠀⣷⣀⠀⢀⣠⡷⡀⠉⠁⠀⢸⠇⠀⠀⠀
+ ⠈⠉⠉⠀⠀⠙⠲⠤⠶⠋<span style="color: green" data-astro-cid-sv7gkbrs>
+              ||
+              ||
+              ||
+              ||
+              ||</span>
+        </p>
+      </a>
+    </div>
+    <marquee class="cloud" direction="right">☁</marquee>
+    <marquee class="cloud">☁</marquee>
+    <p class="plant-item">
+      <span id="flower">
+     ,
+    /\^/A\
+   |\\//##|
+   |#|####|
+   \\\####/
+    '\\//' </span>
+      ||
+      ||
+      ||
+      || ,
+   |\ || |\
+  | | || | |
+  | | || / /
+   \ \||/ /
+    `\\//`
+      ^^
+    </p>
+  </div>
+  <marquee class="bottom" direction="right">Welcome to my Webgarden</marquee>
+</div>
+<script>
+  const plant = document.querySelector('.plant-item');
+  const flower = document.querySelector('#flower');
+  const bloomMessage = document.querySelector('#bloomMessage');
+
+  let size = 1;
+
+  plant.addEventListener('click', () => {
+    if (size < 2.5) size += 0.2;
+
+    plant.style.transform = `translateX(-50%) scale(${size})`;
+
+    if (size >= 2) {
+      flower.style.color = "deeppink";
+    }
+    else if (size >= 1) {
+      flower.style.color = "crimson";
+    }
+    else {
+      flower.style.color = "maroon";
+    }
+
+    if (size >= 2.5) {
+      flower.classList.add("blooming");
+      bloomMessage.style.display = "block";
+    }
+  });
+</script>

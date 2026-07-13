@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  {% include "head.html" %}
+  <style>
+    body.iframe {
+      height: 100%;
+      width: 100%;
+      color: var(--clr-foreground);
+      background-color: var(--clr-background);
+    }
+  </style>
+</head>
+
+<body class="iframe">
+  {% block content %}
+  {{ content | safe }}
+  {% endblock %}
+</body>
+
+</html>
