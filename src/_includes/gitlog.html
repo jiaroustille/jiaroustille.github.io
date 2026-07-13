@@ -1,6 +1,6 @@
 {% set gitlog = page.inputPath | gitlog %}
 {% if gitlog %}
-<details>
+<details style="cursor: pointer">
   <summary style="list-style: none">C:./see/more> git log --pretty --decorate<span class="aniBlink">█</span>
     <ul class="noList" style="gap: 0;">{% for log in gitlog | setLimit(5) %}<li>
       <a 
