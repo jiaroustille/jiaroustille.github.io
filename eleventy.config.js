@@ -33,7 +33,7 @@ export default function (eleventyConfig) {
       output: "_site",
       includes: "../_includes",
       layouts: "../_includes/_layouts",
-      data: "../data"
+      data: "../_data"
     },
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",

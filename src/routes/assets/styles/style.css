@@ -3,3 +3,10 @@
 .noList li::before { content: "" !important; }
 
 main article p a { font-style: italic; color: var(--clr-accent); }
+
+/* WEB GRAPHICS */
+
+.stamp-wall {
+  display: flex;
+  flex-wrap: wrap;
+}

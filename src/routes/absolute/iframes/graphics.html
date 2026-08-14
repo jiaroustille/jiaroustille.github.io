@@ -1,0 +1,20 @@
+---
+layout: iframe.html
+---
+
+<div class="stamp-wall">
+  {% for stamp in graphics %}
+    <a href="{{ stamp.src | cutLink }}" target="_blank">
+      <img 
+        class="stamp"
+        src="{{ stamp.src }}" 
+        alt="{{ stamp.id }}"
+        title="{{ stamp.src | cutLink | strip('https://') }}"
+        width="99"
+        height="56"
+        style="object-fit: contain; overflow: hidden;"
+        eleventy:ignore
+      >
+    </a>
+  {% endfor %}
+</div>

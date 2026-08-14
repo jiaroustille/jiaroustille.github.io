@@ -108,7 +108,7 @@ export default {
     return arr.slice(0, 1)
   },
 
-  //jinja
+  // jinja
   rejectattr(arr, attr, value) {
     if (!Array.isArray(arr)) return []
     return arr.filter(item => {
@@ -127,6 +127,16 @@ export default {
   skipFirst(arr, count) {
     if (!Array.isArray(arr)) return []
     return arr.slice(count)
+  },
+
+  // cut
+  cutLink(str) {
+    const url = new URL(str.startsWith("http") ? str : `https://${str}`)
+    return "https://" + url.hostname
+  },
+
+  strip(str, target) {
+    return str.replaceAll(target, "")
   }
 
 }
