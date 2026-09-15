@@ -37,6 +37,12 @@ export default {
       .replace(/\b\w/g, c => c.toUpperCase()) // upper case on new words
   },
 
+  handleSwedish(str) {
+    return str
+      .replace(/[åä]+/g, "a") // replace "å" and "ä"
+      .replace(/[ö]+/g, "o") // replace "ö"
+  },
+
   // date
   toISOstring(inp) {
     const date = safeDate(inp)

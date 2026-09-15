@@ -1,0 +1,28 @@
+<div class="music-player">
+  <audio id="music-player" controls></audio>
+
+  <ol class="music-list">
+    {% for track in tracks %}
+      <li>
+        <button
+          type="button"
+          class="music-track"
+          data-src="{{ track.url }}"
+        >
+          {{ track.title | handleSwedish | deslugify }}
+        </button>
+      </li>
+    {% endfor %}
+  </ol>
+</div>
+
+<script>
+  const player = document.querySelector("#music-player")
+
+  document.querySelectorAll(".music-track").forEach((track) => {
+    track.addEventListener("click", () => {
+      player.src = track.dataset.src
+      player.play()
+    })
+  })
+</script>

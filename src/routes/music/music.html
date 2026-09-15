@@ -1,0 +1,14 @@
+---
+permalink: /music/index.html
+title: Music
+layout: base.html
+col: myMusic
+eleventyComputed:
+  eleventyExcludeFromCollections: true
+---
+
+<h1>{{ title }}</h1>
+{% from "hfeed.njk" import hfeed %}
+{{ hfeed(collections[col] | reverse, true) }}
+
+{% include "myMusic.html" %}
