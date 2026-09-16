@@ -1,0 +1,38 @@
+{% extends "_layouts/base.html" %}
+
+{% block content %}
+<article class="e-content">
+
+  <header>
+    <h1 class="p-name">{{ title }}</h1>
+    <div style="display: flex; gap: 1ch; align-items: flex-end;">
+      {% dateTime pub, upd %}
+    </div>
+    <p class="p-note">{{ caption }}</p>
+  </header>
+
+  <figure style="display: flex; gap: 1em">
+    <div style="display: flex; flex-direction: column; width: fit-content;">
+      <image
+        src="/assets/img/{{ coverArt }}"
+        alt="{{ title }}"
+        width="300" height="300"
+      ></image>
+      <audio
+        src="/assets/audio/{{ audio }}" 
+        controls
+      ></audio>
+    </div>
+    <pre>
+      {{ content | safe }}
+    </pre>
+  </figure>
+
+  <footer>
+    {% include "tags.html" %}
+    <p class="copyright"><span class="p-author">{{ artist or author.name }}</span> <time>{{ pub | getYear }}</time></p>
+    {% recommended "myMusic", page, collections  %}
+  </footer>
+
+</article>
+{% endblock %}

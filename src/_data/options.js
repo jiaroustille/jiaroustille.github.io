@@ -1,7 +1,7 @@
 export default {
   markdownIt: {
   	html: true,
-		breaks: false,
+		breaks: true,
 		linkify: true,
 		xhtmlOut: false
   },

@@ -86,6 +86,8 @@ body > main > article > footer > ul > li::before { content: "#" !important; }
 body > main > article > footer > .p-author { margin-top: var(--md); }
 body > main > article > footer > .p-author::before { content: "//"; }
 
+body > main > article > footer > .copyright::before { content: "©"; }
+
 body > main > ul.h-feed { margin: auto; }
 body > main > ul.h-feed > li { padding-bottom: var(--xxl); border-bottom: 1px solid var(--clr-secondary); }
 body > main > ul { 

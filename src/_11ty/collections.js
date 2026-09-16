@@ -14,6 +14,11 @@ export default {
   recipes(collectionApi) {
     return collectionApi
       .getFilteredByGlob("./src/routes/recipes/*.md")
+  },
+
+  myMusic(collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("./src/routes/music/*.md")
   }
 
 }

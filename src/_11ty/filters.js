@@ -52,6 +52,11 @@ export default {
     return `${year} 年 ${month} 月 ${day} 日`
   },
 
+  getYear(inp) {
+    const date = safeDate(inp)
+    return date ? date.getFullYear() : ""
+  },
+
   // generate
   genDescription(str) {
     if (!str) return ""
