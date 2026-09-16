@@ -1,7 +1,7 @@
 {% extends "_layouts/base.html" %}
 
 {% block content %}
-<article class="e-content">
+<article class="h-entry">
 
   <header>
     <h1 class="p-name">{{ title }}</h1>
@@ -11,7 +11,7 @@
     </div>
   </header>
 
-  <div>
+  <div class="e-content">
     {{ content | safe }}
   </div>
 

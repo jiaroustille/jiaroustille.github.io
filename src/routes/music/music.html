@@ -9,4 +9,4 @@ eleventyComputed:
 
 <h1>{{ title }}</h1>
 {% from "hfeed.njk" import hfeed %}
-{{ hfeed(collections[col] | reverse, true) }}
+{{ hfeed(collections[col] | reverse, false) }}

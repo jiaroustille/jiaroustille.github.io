@@ -1,6 +1,6 @@
 ---
 title: "Tiden Går"
-caption: "Instrumental"
+note: "Instrumental Version, vocals soon to come."
 coverArt: "tiden-gar.jpg"
 audio: "tiden-gar.m4a"
 pub: 2026-09-16

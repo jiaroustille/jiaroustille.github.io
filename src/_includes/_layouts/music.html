@@ -1,37 +1,58 @@
 {% extends "_layouts/base.html" %}
 
 {% block content %}
+<!--
 <article class="e-content">
 
   <header>
     <h1 class="p-name">{{ title }}</h1>
-    <div style="display: flex; gap: 1ch; align-items: flex-end;">
-      {% dateTime pub, upd %}
-    </div>
-    <p class="p-note">{{ caption }}</p>
+    <p class="copyright">©<span class="p-author">{{ artist or author.name }}</span> <time>{{ pub | getYear }}</time></p>
   </header>
 
-  <figure style="display: flex; gap: 1em">
-    <div style="display: flex; flex-direction: column; width: fit-content;">
-      <image
-        src="/assets/img/{{ coverArt }}"
-        alt="{{ title }}"
-        width="300" height="300"
-      ></image>
-      <audio
-        src="/assets/audio/{{ audio }}" 
-        controls
-      ></audio>
+  <figure>
+    <div class="player">
+      <image src="/assets/img/{{ coverArt }}" alt="{{ title }}" width="300" height="300"></image>
+      <audio src="/assets/audio/{{ audio }}" controls></audio>
+      <p class="p-note">{{ caption }}</p>
     </div>
-    <pre>
-      {{ content | safe }}
-    </pre>
+    <figcaption>
+      <pre>
+        {{ content | safe }}
+      </pre>
+        by: {{ artist or author.name }}, {% dateTime pub, upd %}
+    </figcaption>
   </figure>
 
   <footer>
     {% include "tags.html" %}
-    <p class="copyright"><span class="p-author">{{ artist or author.name }}</span> <time>{{ pub | getYear }}</time></p>
-    {% recommended "myMusic", page, collections  %}
+    {% recommended "myMusic", page, collections %}
+  </footer>
+
+</article>
+-->
+
+<article class="h-entry">
+
+  <header>
+    <h1 class="p-name">{{ title }}</h1>
+    <p class="p-note">{{ note }}</p>
+  </header>
+
+  <figure>
+    <div class="player">
+      <image src="/assets/img/{{ coverArt }}" alt="{{ title }}" width="300" height="300" class="u-photo"></image>
+      <audio src="/assets/audio/{{ audio }}" controls class="u-audio">Loading...</audio>
+    </div>
+    <figcaption style="white-space: pre;" class="e-content">
+      {{ content | safe }}
+    </figcaption>
+  </figure>
+
+  <footer>
+    <p class="copyright">©<span class="dt-published">{{ pub | getYear }}</span>
+      <span class="h-card p-author">{{ artist or author.name }}</span>.
+      All Rights Reserved.
+    </p>
   </footer>
 
 </article>
