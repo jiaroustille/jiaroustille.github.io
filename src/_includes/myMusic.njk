@@ -1,0 +1,57 @@
+<!--
+
+<div class="music-player">
+  <audio id="music-player" controls></audio>
+
+  <ol class="music-list">
+    {% for track in tracks %}
+      <li>
+        <button
+          type="button"
+          class="music-track"
+          data-src="{{ track.url }}"
+        >
+          {{ track.title | handleSwedish | deslugify }}
+        </button>
+      </li>
+    {% endfor %}
+  </ol>
+</div>
+
+<script>
+  const player = document.querySelector("#music-player")
+
+  document.querySelectorAll(".music-track").forEach((track) => {
+    track.addEventListener("click", () => {
+      player.src = track.dataset.src
+      player.play()
+    })
+  })
+</script>
+
+-->
+
+{% macro myMusic(name, audio, img, cap, author ) %}
+  <figure class="h-entry" style="display: flex;">
+    <div style="display: flex; flex-direction: column; width: fit-content;">
+      <image
+        src="/assets/img/{{ img }}",
+        alt="{{ title }}",
+        width="300",
+        height="300",
+      ></image>
+      <audio
+        class="u-audio"
+        id="music-player"
+        controls
+        src="/assets/audio/{{ audio }}"
+      >Loading...</audio>
+    </div>
+
+    <figcaption class="h-media" style="margin-left: 1em;">
+      <h2 class="p-name">{{ name }}</h2>
+      <p class="p-summary">{{ cap }}</p>
+      <p class="p-author h-card">by: <span class="p-name">{{ author | default(site.author.name, true) }}</span></p>
+    </figcaption>
+  </figure>
+{% endmacro %}

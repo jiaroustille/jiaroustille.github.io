@@ -54,6 +54,35 @@ export default {
     <br>`
   },
 
+  musicPlayer(name, audio, img, cap, author) {
+    const siteAuthor = this.ctx.site.author.name
+    const musicAuthor = author || siteAuthor
+
+    return `
+    <figure class="h-entry" style="display: flex;">
+      <div style="display: flex; flex-direction: column; width: fit-content;">
+        <image
+          src="/assets/img/${img}",
+          alt="${name}",
+          width="300",
+          height="300",
+        ></image>
+        <audio
+          class="u-audio"
+          id="music-player"
+          controls
+          src="/assets/audio/${audio}"
+        >Loading...</audio>
+      </div>
+      <figcaption class="h-media" style="margin-left: 1em;">
+        <h2 class="p-name">${name}</h2>
+        <p class="p-summary">${cap}</p>
+        <p class="p-author h-card">by: <span class="p-name">${musicAuthor}</span></p>
+      </figcaption>
+    </figure>
+    `
+  },
+
   slider(images = [], captions = [], width, height, alts = []) { // lesson learnt: line breaks MATTER
     const slides = images.map((src, i) => {
       const caption = captions[i] || ""

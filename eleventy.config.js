@@ -15,15 +15,15 @@ export default function (eleventyConfig) {
   Object.keys(filters).forEach((name) => { eleventyConfig.addFilter(name, filters[name]) })
   Object.keys(collections).forEach((name) => { eleventyConfig.addCollection(name, collections[name]) })
   Object.keys(shortcodes).forEach((name) => {
-    eleventyConfig.addShortcode(name, function (...args) {
-      return shortcodes[name](...args, this.ctx.collections)
+    eleventyConfig.addNunjucksShortcode(name, function (...args) {
+      return shortcodes[name].call(this, ...args, this.ctx.collections)
     })
   })
 
   eleventyConfig.addPlugin(IdAttributePlugin)
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, options.eleventyImageTransformPlugin)
   eleventyConfig.addPlugin(syntaxHighlight)
-  
+
   eleventyConfig.addPassthroughCopy("./src/routes/assets/")
   eleventyConfig.addWatchTarget("./src/routes/assets/")
 

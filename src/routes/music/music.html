@@ -7,8 +7,10 @@ eleventyComputed:
   eleventyExcludeFromCollections: true
 ---
 
-<h1>{{ title }}</h1>
-{% from "hfeed.njk" import hfeed %}
-{{ hfeed(collections[col] | reverse, true) }}
-
-{% include "myMusic.html" %}
+{{ musicPlayer(
+  "Tiden Går",
+  "tiden-gar.m4a",
+  "tiden-gar.jpg",
+  "caption",
+  "author"
+) }}
