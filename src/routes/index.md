@@ -6,7 +6,7 @@ eleventyComputed:
 ---
 
 {% from "hfeed.njk" import hfeed %}
-{{ hfeed(collections.writings | setLimit(2) | reverse, true) }}
-{{ hfeed(collections.myMusic | reverse, true) }}
+{{ hfeed(collections.writings | setLimit(3) | reverse, true) }}
+{{ hfeed(collections.myMusic | setLimit(2) | reverse, false) }}
 
 {% include "gitlog.html" %}
