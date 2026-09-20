@@ -1,0 +1,70 @@
+<div id="spotify"></div>
+
+<script type="module">
+const clientId = "639b8233fd4e4b87ab070a825a353d1c";
+// const redirectUri = location.origin + "/callback";
+const redirectUri = "https://{{ site.domain }}" + "/callback";
+
+const p = new URLSearchParams(location.search);
+const code = p.get("code");
+
+if (!code) login();
+else {
+  const token = await token(code);
+
+  for (const path of [
+    "/me",
+    "/me/top/artists?limit=50",
+    "/me/top/tracks?limit=50",
+    "/me/player/recently-played?limit=50"
+  ])
+    console.log(path, await api(path, token));
+}
+
+async function login() {
+  const v = crypto.randomUUID() + crypto.randomUUID();
+  localStorage.v = v;
+
+  const h = await crypto.subtle.digest(
+    "SHA-256", new TextEncoder().encode(v)
+  );
+
+  const c = btoa(String.fromCharCode(...new Uint8Array(h)))
+    .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+
+  location = "https://accounts.spotify.com/authorize?" +
+    new URLSearchParams({
+      client_id: clientId,
+      response_type: "code",
+      redirect_uri: redirectUri,
+      scope: "user-read-private user-read-email user-top-read user-read-recently-played",
+      code_challenge_method: "S256",
+      code_challenge: c
+    });
+}
+
+async function token(code) {
+  const r = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    headers: {"Content-Type": "application/x-www-form-urlencoded"},
+    body: new URLSearchParams({
+      client_id: clientId,
+      grant_type: "authorization_code",
+      code,
+      redirect_uri: redirectUri,
+      code_verifier: localStorage.v
+    })
+  });
+
+  const data = await r.json();
+  if (!r.ok) throw new Error(JSON.stringify(data));
+
+  return data.access_token;
+}
+
+async function api(path, token) {
+  return fetch("https://api.spotify.com/v1" + path, {
+    headers: {Authorization: `Bearer ${token}`}
+  }).then(r => r.json());
+}
+</script>
