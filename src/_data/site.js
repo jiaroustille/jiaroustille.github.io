@@ -10,6 +10,7 @@ export default {
     socials: [
       { label: "GitHub", href: "https://github.com/jiaroustille" },
       { label: "BlueSky", href: "https://bsky.app/profile/jiaroustille.bsky.social" }
-    ]
+    ],
+    birthday: "2007-06-24"
   }
 }

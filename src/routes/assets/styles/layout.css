@@ -134,3 +134,23 @@ body>main>article>figure>figcaption { margin-top: -3em; }
   }
   body>main>article>figure>figcaption { margin-top: 0; }
 }
+
+.dashboard {
+  display: flex; 
+  flex-direction: row;
+  gap: var(--md);
+  padding: var(--md);
+}
+
+.widget {
+  border-radius: var(--md);
+  background-color: var(--clr-muted);
+  height: fit-content;
+  width: fit-content;
+  padding: var(--sm);
+}
+
+.highlighted {
+  font-weight: 700;
+  padding: 4px;
+}

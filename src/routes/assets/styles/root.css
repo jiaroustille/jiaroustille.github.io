@@ -65,6 +65,6 @@ html {
   font-family: var(--font-family);
   height: 100%;
   cursor: default;
-  word-break: pretty;
+  word-break: normal;
   scroll-behavior: smooth;
 }

@@ -1,0 +1,16 @@
+export default [
+  { quote: "Du är bäst som en häst, Elise.", author: "Jakob Nolberger", year: 2026 },
+  { quote: "Jag är inte borta, jag är hemma.", author: "Arvid", year: 2026 },
+  { quote: "Inte för att låta som ett creep men dina bröst sticker ut.", author: "Benjamin", year: 2026 },
+  { quote: "Om du var kille så hade jag tafsat på dig.", author: "Alexander", year: 2026 },
+  { quote: "Du pratar i present men jag är ju här.", author: "William Brobeck", year: 2026 },
+  { quote: "Ibland tvekar jag på att du är min syster.", author: "Julia Lundqvist", year: 2026 },
+  { quote: "Ni är så tighta.", author: "Jenny Stille", year: 2026 },
+  { quote: "Rhodes, do I have permission to fuck my girlfriend?", author: "William Brobeck", year: 2026 },
+  { quote: "Jag är så stressad att jag behöver kuk!", author: "William Brobeck", year: 2026 },
+  { quote: "Jakobs Lill-måndag.", author: "Jakob Nolberger", year: 2026 },
+  { quote: "Save a bus, ride a Jia-Rou", author: "Elise Lundqvist", year: 2026 },
+  { quote: "I don't make the rules, I only make the boobs.", author: "Luna", year: 2026 },
+  { quote: "Du är inte ful, du har bara internaliserad racism.", author: "Elise Lundqvist", year: 2026 },
+  { quote: "Hon där älskar bröst!", author: "Lotta", year: 2024 },
+];

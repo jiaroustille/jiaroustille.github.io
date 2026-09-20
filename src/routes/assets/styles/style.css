@@ -10,3 +10,10 @@ main article p a { font-style: italic; color: var(--clr-accent); }
   display: flex;
   flex-wrap: wrap;
 }
+
+#quotes {
+  width: 370px;
+  height: 200px;
+  white-space: wrap;
+  overflow: hidden;
+}

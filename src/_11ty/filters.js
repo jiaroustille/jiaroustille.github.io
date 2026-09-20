@@ -26,6 +26,7 @@ function loadGitlogCache() {
 export default {
 
   debug(obj) { return Object.keys(obj) },
+  json(value) { return JSON.stringify(value) },
 
   // casing
   toUpperCase(str) { return str.toUpperCase() },

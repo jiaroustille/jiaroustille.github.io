@@ -1,0 +1,245 @@
+<div class="dashboard">
+
+    <section class="widget" id="spotify">
+        <p><span id="status">Loading...</span>:</p>
+        <p><span id="track"></span> - <span id="artist"></span></p>
+        <img id="cover" width="200" style="display:none">
+        <script type="module">
+            const clientId = "{{ apiKeys.spotify.clientId }}";
+            const redirectUri = "{{ apiKeys.spotify.redirectUri }}";
+
+            const params = new URLSearchParams(window.location.search);
+            const code = params.get("code");
+
+            if (!code) {
+                await login();
+            } else {
+                window.history.replaceState(
+                    {},
+                    document.title,
+                    window.location.pathname
+                );
+                const token = await getAccessToken(code);
+                await update(token);
+                setInterval(() => update(token), 10000);
+            }
+
+            async function login() {
+                const verifier = generateVerifier();
+                const challenge = await generateChallenge(verifier);
+
+                localStorage.setItem("verifier", verifier);
+
+                const params = new URLSearchParams({
+                    client_id: clientId,
+                    response_type: "code",
+                    redirect_uri: redirectUri,
+                    scope: "user-read-currently-playing user-read-recently-played",
+                    code_challenge_method: "S256",
+                    code_challenge: challenge
+                });
+                window.location.href = `https://accounts.spotify.com/authorize?${params}`;
+            }
+
+            function generateVerifier() {
+                const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                let verifier = "";
+                for (let i = 0; i < 128; i++) { verifier += chars[Math.floor(Math.random() * chars.length)]; }
+                return verifier;
+            }
+
+            async function generateChallenge(verifier) {
+                const data = new TextEncoder().encode(verifier);
+                const hash = await crypto.subtle.digest("SHA-256", data);
+
+                return btoa(
+                    String.fromCharCode(...new Uint8Array(hash))
+                )
+                    .replace(/\+/g, "-")
+                    .replace(/\//g, "_")
+                    .replace(/=+$/, "");
+            }
+
+            async function getAccessToken(code) {
+                const verifier = localStorage.getItem("verifier");
+
+                const body = new URLSearchParams({
+                    client_id: clientId,
+                    grant_type: "authorization_code",
+                    code,
+                    redirect_uri: redirectUri,
+                    code_verifier: verifier
+                });
+
+                const response = await fetch(
+                    "https://accounts.spotify.com/api/token",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        data.error_description || "Token request failed"
+                    );
+                }
+                return data.access_token;
+            }
+
+            async function update(token) {
+                const response = await fetch(
+                    "https://api.spotify.com/v1/me/player/currently-playing",
+                    { headers: { Authorization: `Bearer ${token}` } }
+                );
+
+                if (response.status === 204) {
+                    await showRecentlyPlayed(token);
+                    return;
+                }
+
+                if (!response.ok) {
+                    throw new Error(`Spotify error: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (!data.item) {
+                    await showRecentlyPlayed(token);
+                    return;
+                }
+
+                showTrack(data.item, "Now Playing");
+            }
+
+            async function showRecentlyPlayed(token) {
+                const response = await fetch(
+                    "https://api.spotify.com/v1/me/player/recently-played?limit=1",
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error(
+                        `Recently played error: ${response.status}`
+                    );
+                }
+
+                const data = await response.json();
+
+                if (!data.items?.length) {
+                    document.getElementById("status").textContent =
+                        "Nothing playing";
+                    document.getElementById("track").textContent = "";
+                    document.getElementById("artist").textContent = "";
+                    return;
+                }
+
+                const track = data.items[0].track;
+                showTrack(track, "Recently Played");
+            }
+
+            function showTrack(track, status) {
+                document.getElementById("status").textContent = status;
+
+                document.getElementById("track").textContent =
+                    track.name;
+
+                document.getElementById("artist").textContent =
+                    track.artists
+                        .map(artist => artist.name)
+                        .join(", ");
+
+                const cover = document.getElementById("cover");
+
+                if (track.album?.images?.[0]) {
+                    cover.src = track.album.images[0].url;
+                    cover.style.display = "block";
+                } else {
+                    cover.style.display = "none";
+                }
+            }
+        </script>
+    </section>
+
+    <section class="widget" id="birthday">
+        <p id="birthDate"></p>
+        <script type="module">
+            const birthdate = "{{ site.author.birthday }}"
+            let startDate = new Date(new Date(birthdate).toISOString().substr(0, 10))
+            const endingDate = new Date().toISOString().substr(0, 10)
+            let endDate = new Date(endingDate)
+
+            if (startDate > endDate) {
+                const swap = startDate
+                startDate = endDate
+                endDate = swap
+            }
+
+            const startYear = startDate.getFullYear()
+            const february = (startYear % 4 === 0 && startYear % 100 !== 0) || startYear % 400 === 0 ? 29 : 28
+            const daysInMonth = [31, february, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+            let yearDiff = endDate.getFullYear() - startYear
+            let monthDiff = endDate.getMonth() - startDate.getMonth()
+            let dayDiff = endDate.getDate() - startDate.getDate()
+
+            if (monthDiff < 0) {
+                yearDiff--
+                monthDiff += 12
+            }
+
+            if (dayDiff < 0) {
+                if (monthDiff > 0) {
+                    monthDiff--
+                } else {
+                    yearDiff--
+                    monthDiff = 11
+                }
+                dayDiff += daysInMonth[startDate.getMonth()]
+            }
+
+            document.getElementById('birthDate').innerHTML =
+                `Time on Earth: <br>
+            <time class="highlighted">${yearDiff}</time> years, <br>
+            <time class="highlighted">${monthDiff}</time> months <br>
+            <time class="highlighted">${dayDiff}</time> days
+            `;
+        </script>
+    </section>
+
+    <section class="widget" id="quotes">
+        <blockquote id="quote-box" style="cursor: pointer;"> 
+            <p id="quote-text">Loading...</p>
+            <footer id="quote-author"></footer>
+        </blockquote>
+        <script>
+            const Quotes = {{ quotes | json | safe }}
+            let currentIndex = Math.floor(Math.random() * Quotes.length)
+
+            function showQuote(index) {
+                const q = Quotes[index]
+                document.getElementById("quote-text").textContent = `"${q.quote}"`
+                document.getElementById("quote-author").textContent =
+                    `— ${q.author}${q.year ? ', ' + q.year : ''}`
+            }
+            function nextQuote() {
+                currentIndex = (currentIndex + 1) % Quotes.length;
+                showQuote(currentIndex)
+            }
+            document.addEventListener("DOMContentLoaded", () => {
+                showQuote(currentIndex)
+                document.getElementById("quote-box").addEventListener("click", nextQuote)
+            })
+        </script>
+    </section>
+
+</div>
