@@ -30,9 +30,36 @@ permalink: spotify.html
       data[path] = await api(path, accessToken)
     }
 
-    output.innerHTML = `
-    <pre>${JSON.stringify(data, null, 2)}</pre>
-  `;
+    output.innerHTML =
+      // `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+      `
+<h2>Top Artists</h2>
+<ol>
+  ${artists.items.slice(0, 5)
+    .map(artist => `<li>${artist.name}</li>`)
+    .join("")}
+</ol>
+
+<h2>Top Songs</h2>
+<ol>
+  ${tracks.items.slice(0, 5)
+    .map(track => `
+      <li>
+        ${track.name} — ${track.artists.map(a => a.name).join(", ")}
+      </li>
+    `)
+    .join("")}
+</ol>
+
+<h2>Top Genres</h2>
+<ol>
+  ${topGenres
+    .map(([genre, count]) => `
+      <li>${genre} (${count})</li>
+    `)
+    .join("")}
+</ol>
+    `
   }
 
   async function login() {
