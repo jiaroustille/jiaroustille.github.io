@@ -1,35 +1,6 @@
 {% extends "_layouts/base.html" %}
 
 {% block content %}
-<!--
-<article class="e-content">
-
-  <header>
-    <h1 class="p-name">{{ title }}</h1>
-    <p class="copyright">©<span class="p-author">{{ artist or author.name }}</span> <time>{{ pub | getYear }}</time></p>
-  </header>
-
-  <figure>
-    <div class="player">
-      <image src="/assets/img/{{ coverArt }}" alt="{{ title }}" width="300" height="300"></image>
-      <audio src="/assets/audio/{{ audio }}" controls></audio>
-      <p class="p-note">{{ caption }}</p>
-    </div>
-    <figcaption>
-      <pre>
-        {{ content | safe }}
-      </pre>
-        by: {{ artist or author.name }}, {% dateTime pub, upd %}
-    </figcaption>
-  </figure>
-
-  <footer>
-    {% include "tags.html" %}
-    {% recommended "myMusic", page, collections %}
-  </footer>
-
-</article>
--->
 
 <article class="h-entry">
 
@@ -39,21 +10,56 @@
   </header>
 
   <figure>
-    <div class="player">
-      <image src="/assets/img/{{ coverArt }}" alt="{{ title }}" width="300" height="300" class="u-photo"></image>
-      <audio src="/assets/audio/{{ audio }}" controls class="u-audio">Loading...</audio>
+
+    <div 
+      class="player" 
+      data-title="{{ title }}" 
+      data-artist="{{ artist or author.name }}" 
+      data-album="{{ site.title }}"
+      data-cover="/assets/img/{{ coverArt }}"> 
+      <img 
+        src="/assets/img/{{ coverArt }}" 
+        alt="{{ title }}" 
+        width="300"    
+        height="300" 
+        class="u-photo">
+      <audio 
+        src="/assets/audio/{{ audio }}" 
+        controls 
+        class="u-audio">
+        Loading...
+      </audio>
     </div>
-    <figcaption style="white-space: pre;" class="e-content">
+
+    <figcaption class="e-content" style="white-space: pre-wrap;">
       {{ content | safe }}
     </figcaption>
+
   </figure>
 
   <footer>
-    <p class="copyright">©<span class="dt-published">{{ pub | getYear }}</span>
-      <span class="h-card p-author">{{ artist or author.name }}</span>.
-      All Rights Reserved.
-    </p>
+    <p class="copyright"> ©<span class="dt-published">{{ pub | getYear }}</span> <span class="h-card p-author">{{ artist
+        or author.name }}</span>. All Rights Reserved. </p>
   </footer>
 
 </article>
+
+<script> 
+  const player = document.querySelector('.player')
+  const audio = document.querySelector('.u-audio')
+  if (player && audio && 'mediaSession' in navigator) { 
+    const title = player.dataset.title
+    const artist = player.dataset.artist
+    const album = player.dataset.album
+    const cover = player.dataset.cover
+      if (cover) { 
+        navigator.mediaSession.metadata = new MediaMetadata({ 
+          title: title, 
+          artist: artist, 
+          album: album, 
+          artwork: [{ src: cover, sizes: '300x300', type: 'image/jpeg' }] })
+      } 
+    } 
+</script>
+
 {% endblock %}

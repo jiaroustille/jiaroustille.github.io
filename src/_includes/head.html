@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="{{ site.domain }}">
 <meta property="og:image" content="{{ site.preview }}" />
 
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="{{ content | genDescription }}">
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ content | genDescription }}">
 
