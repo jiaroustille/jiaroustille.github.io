@@ -140,6 +140,7 @@ body>main>article>figure>figcaption { margin-top: -3em; }
   flex-direction: row;
   gap: var(--md);
   padding: var(--md);
+  flex-wrap: wrap;
 }
 
 .widget {
