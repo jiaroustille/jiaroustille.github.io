@@ -13,30 +13,34 @@ permalink: spotify.html
   const p = new URLSearchParams(location.search)
   const code = p.get("code")
 
-  if (!code) {
-    login();
-  } else {
-    const accessToken = await getToken(code)
-    history.replaceState({}, "", location.pathname)
+if (!code) {
+  login();
+} else {
+  const accessToken = await getToken(code)
+  history.replaceState({}, "", location.pathname)
 
-    const data = {}
+  const artists = await api( "/me/top/artists?limit=50", accessToken )
+  const tracks = await api( "/me/top/tracks?limit=50", accessToken )
+  const genres = {}
 
-    for (const path of [
-      "/me",
-      "/me/top/artists?limit=50",
-      "/me/top/tracks?limit=50",
-      "/me/player/recently-played?limit=50"
-    ]) {
-      data[path] = await api(path, accessToken)
-    }
+  artists.items.forEach(artist => {
+    artist.genres.forEach(genre => {
+      genres[genre] = (genres[genre] || 0) + 1
+    })
+  })
 
-    output.innerHTML =
-      // `<pre>${JSON.stringify(data, null, 2)}</pre>`;
-      `
+  const topGenres = Object.entries(genres)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+
+  output.innerHTML = 
+  `
 <h2>Top Artists</h2>
 <ol>
   ${artists.items.slice(0, 5)
-    .map(artist => `<li>${artist.name}</li>`)
+    .map(artist => `
+      <li>${artist.name}</li>
+    `)
     .join("")}
 </ol>
 
@@ -59,8 +63,8 @@ permalink: spotify.html
     `)
     .join("")}
 </ol>
-    `
-  }
+  `
+}
 
   async function login() {
     const verifier = crypto.randomUUID() + crypto.randomUUID();
