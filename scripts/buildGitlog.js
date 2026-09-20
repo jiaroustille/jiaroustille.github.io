@@ -3,7 +3,7 @@ import fs from "fs"
 import path from "path"
 
 const raw = execSync(
-  'git log --pretty=format:"%H|%cs|%s"'
+  "git log --pretty=format:\"%H|%cs|%s\""
 ).toString()
 
 const entries = raw.split("\n").map(line => {
