@@ -16,7 +16,8 @@ permalink: spotify.html
   if (!code) {
     login();
   } else {
-    const accessToken = await getToken(code);
+    const accessToken = await getToken(code)
+    history.replaceState({}, "", location.pathname)
 
     const data = {}
 
@@ -35,55 +36,61 @@ permalink: spotify.html
   }
 
   async function login() {
-    const v = crypto.randomUUID() + crypto.randomUUID()
-    localStorage.v = v
+    const verifier = crypto.randomUUID() + crypto.randomUUID();
+    localStorage.setItem("spotify_verifier", verifier);
 
-    const h = await crypto.subtle.digest(
+    const hash = await crypto.subtle.digest(
       "SHA-256",
-      new TextEncoder().encode(v)
-    )
+      new TextEncoder().encode(verifier)
+    );
 
-    const c = btoa(
-      String.fromCharCode(...new Uint8Array(h))
+    const challenge = btoa(
+      String.fromCharCode(...new Uint8Array(hash))
     )
       .replace(/\+/g, "-")
       .replace(/\//g, "_")
-      .replace(/=+$/, "")
+      .replace(/=+$/, "");
 
-    location = "https://accounts.spotify.com/authorize?" +
+    location.href =
+      "https://accounts.spotify.com/authorize?" +
       new URLSearchParams({
         client_id: clientId,
         response_type: "code",
         redirect_uri: redirectUri,
         scope: "user-read-private user-read-email user-top-read user-read-recently-played",
         code_challenge_method: "S256",
-        code_challenge: c
-      })
+        code_challenge: challenge
+      });
   }
 
   async function getToken(code) {
+    const verifier = localStorage.getItem("spotify_verifier")
+
+    if (!verifier)
+      throw new Error("Missing PKCE verifier. Log in again.")
+
     const r = await fetch(
       "https://accounts.spotify.com/api/token",
       {
         method: "POST",
         headers: {
-          "Content-Type":
-            "application/x-www-form-urlencoded"
+          "Content-Type": "application/x-www-form-urlencoded"
         },
         body: new URLSearchParams({
           client_id: clientId,
           grant_type: "authorization_code",
           code,
           redirect_uri: redirectUri,
-          code_verifier: localStorage.v
+          code_verifier: verifier
         })
       }
     )
 
-    const data = await r.json()
+    const data = await r.json();
 
     if (!r.ok)
       throw new Error(JSON.stringify(data))
+    localStorage.removeItem("spotify_verifier")
     return data.access_token
   }
 
