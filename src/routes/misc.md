@@ -17,3 +17,8 @@ eleventyComputed:
   <h2>Graphics</h2>
   <iframe src="/assets/iframes/graphics.html" height="500" width="auto" style="border: 0;"></iframe>
 </section>
+
+<section>
+  <h2>Spotify Stats</h2>
+  <iframe src="/spotify.html" height="500" width="auto" style="border: 0;"></iframe>
+</section>

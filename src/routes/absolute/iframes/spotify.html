@@ -19,8 +19,9 @@ if (!code) {
   const accessToken = await getToken(code)
   history.replaceState({}, "", location.pathname)
 
-  const artists = await api( "/me/top/artists?limit=50", accessToken )
-  const tracks = await api( "/me/top/tracks?limit=50", accessToken )
+  const artists = await api( "/me/top/artists?limit=5", accessToken )
+  const tracks = await api( "/me/top/tracks?limit=5", accessToken )
+  const recentlyPlayed = await api( "/me/player/recently-played?limit=1", accessToken )
 
   output.innerHTML = 
   `
@@ -43,6 +44,12 @@ if (!code) {
     `)
     .join("")}
 </ol>
+
+<h2>Recently Played</h2>
+<p>
+  ${recentlyPlayed.items[0].track.name} —
+  ${recentlyPlayed.items[0].track.artists.map(a => a.name).join(", ")}
+</p>
   `
 }
 
