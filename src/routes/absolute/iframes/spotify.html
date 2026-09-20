@@ -1,9 +1,13 @@
+---
+permalink: spotify.html
+---
+
 <div id="spotify"></div>
 
 <script type="module">
 const clientId = "639b8233fd4e4b87ab070a825a353d1c";
 // const redirectUri = location.origin + "/callback";
-const redirectUri = "https://{{ site.domain }}" + "/callback";
+const redirectUri = "https://{{ site.domain }}" + "/spotify.html";
 
 const p = new URLSearchParams(location.search);
 const code = p.get("code");
