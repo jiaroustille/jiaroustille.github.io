@@ -21,17 +21,6 @@ if (!code) {
 
   const artists = await api( "/me/top/artists?limit=50", accessToken )
   const tracks = await api( "/me/top/tracks?limit=50", accessToken )
-  const genres = {}
-
-  artists.items.forEach(artist => {
-    artist.genres.forEach(genre => {
-      genres[genre] = (genres[genre] || 0) + 1
-    })
-  })
-
-  const topGenres = Object.entries(genres)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 5)
 
   output.innerHTML = 
   `
@@ -51,15 +40,6 @@ if (!code) {
       <li>
         ${track.name} — ${track.artists.map(a => a.name).join(", ")}
       </li>
-    `)
-    .join("")}
-</ol>
-
-<h2>Top Genres</h2>
-<ol>
-  ${topGenres
-    .map(([genre, count]) => `
-      <li>${genre} (${count})</li>
     `)
     .join("")}
 </ol>
